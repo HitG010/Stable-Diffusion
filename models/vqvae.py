@@ -38,6 +38,7 @@ class VQVAE(nn.Module):
                     out_channels=self.down_channels[i + 1],
                     down_sample=self.down_sample[i],
                     attn=self.attns[i],
+                    num_layers=self.num_down_layers,
                     num_heads=self.num_heads,
                     norm_channels=self.norm_channels,
                     time_emb_dim=None
@@ -89,6 +90,7 @@ class VQVAE(nn.Module):
                     in_channels=self.down_channels[i],
                     out_channels=self.down_channels[i - 1],
                     up_sample=self.up_sample[i - 1],
+                    num_layers=self.num_up_layers,
                     attn=self.attns[i - 1],
                     num_heads=self.num_heads,
                     norm_channels=self.norm_channels,

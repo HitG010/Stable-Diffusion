@@ -39,7 +39,7 @@ def train(args):
     
     im_dataset_cls = {
         'mnist': MnistDataset,
-        'celeb': CelebDataset
+        'celebhq': CelebDataset
     }.get(dataset_config['name'])
     
     im_dataset = im_dataset_cls(
@@ -62,7 +62,7 @@ def train(args):
     disc_criterion = torch.nn.MSELoss()
     
     lpips_model = LPIPS().eval().to(device)
-    descriminator = Discriminator(
+    discriminator = Discriminator(
         im_channels = dataset_config['im_channels']).to(device)
     
     optimizer_d = Adam(discriminator.parameters(), lr=train_config['autoencoder_lr'], betas=(0.5, 0.999))

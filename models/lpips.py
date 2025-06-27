@@ -12,6 +12,8 @@ import inspect
 
 device = torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu")
 
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 def spatial_average(input, keepdim = True):
     return input.mean(dim=(2, 3), keepdim=keepdim)

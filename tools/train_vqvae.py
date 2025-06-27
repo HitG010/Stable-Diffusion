@@ -120,8 +120,8 @@ def train(args):
             g_loss = (recon_loss + (train_config['codebook_weight'] * quantize_losses['codebook_loss'] / acc_steps) +
                        (train_config['commitment_beta'] * quantize_losses['commitment_loss'] / acc_steps))
             
-            codebook_losses.append(train_config['codebook_weight'] * quantize_losses['codebook_loss'].item()
-                                   
+            codebook_losses.append(train_config['codebook_weight'] * quantize_losses['codebook_loss'].item())
+
             if step_count > disc_step_start:
                 disc_fake_pred = discriminator(model_output[0])
                 disc_fake_loss = disc_criterion(disc_fake_pred, torch.ones(disc_fake_pred.shape, device = disc_fake_pred.device))

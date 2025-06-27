@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from models.block import DownBlock, MidBlock, UpBlock
+from models.blocks import DownBlock, MidBlock, UpBlock
 
 class VQVAE(nn.Module):
     def __init__(self, im_channels, model_config):
